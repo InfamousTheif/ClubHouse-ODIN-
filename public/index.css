@@ -6,6 +6,48 @@
   box-sizing: border-box;
 }
 
+:root {
+  --l-red: #ef2a23;
+  --m-blue: #00aef1;
+  --d-red: #a81a15;
+
+  /* Minty Green */
+  --l-mint: #96fb98;  /* bright pastel mint */
+  --d-mint: #20da45;  /* slightly darker mint */
+
+  /* Bubblegum Pink */
+  --l-pink: #fe8be7;  /* bright pastel pink */
+  --d-pink: #e25acc;  /* deeper pink */
+
+  /* Soft Lavender */
+  --l-purple: #c896fb; /* pastel purple */
+  --d-purple: #9b5de5; /* darker lavender */
+
+  /* Sky Blue */
+  --l-blue: #8be9fe; /* bright sky blue */
+  --d-blue: #4ac6e2; /* slightly darker sky blue */
+
+  /* Lemon Yellow */
+  --l-yellow: #fff58b; /* pastel lemon */
+  --d-yellow: #e6db5a; /* darker lemon */
+
+  /* Coral Orange */
+  --l-orange: #fea58b; /* pastel coral */
+  --d-orange: #e2735c; /* muted coral */
+
+  /* Peach Pink */
+  --l-peach: #ffd18b; /* pastel peach */
+  --d-peach: #e6a55c; /* deeper peach */
+
+  /* Aqua Teal */
+  --l-teal: #8bfefe; /* bright aqua */
+  --d-teal: #4ac6c6; /* darker aqua */
+
+  /* Whiteboard gradients */
+  --l-whiteboard: #ffffff;   /* pure white */
+  --d-whiteboard: #e6f0ff;   /* very light bluish tint */
+}
+
 img, picture, svg, video {
   display: block;
   max-width: 100%;
@@ -13,4 +55,160 @@ img, picture, svg, video {
 
 input, textarea, button, select {
   font: inherit;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(to bottom, var(--l-red), var(--d-red));
+}
+
+header {
+  inset: 0;
+  padding-top: 10px;
+  margin-bottom: 50px;
+
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo-wrapper {
+  width: 300px;
+  cursor: pointer;
+}
+
+.navbar {
+  font-family: sans-serif;
+  font-size: 1.25rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar__anchor {
+  cursor: pointer;
+
+  background-color: var(--d-mint);
+  box-shadow: inset 0px 0px 3px 2px rgb(0, 0, 0, 0.2);
+
+  padding: 5px 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+main {
+  padding: 0px 20px;
+}
+
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4.55rem;
+
+  margin: 0 auto;
+  padding: 50px 10px;
+  background: linear-gradient(var(--l-whiteboard), var(--d-whiteboard));
+  /* border: solid 10px var(--l-blue);
+  border-image: linear-gradient(to bottom, var(--l-blue), var(--d-blue));
+  border-image-slice: 1; */
+  box-shadow: inset 0px 0px 8px 6px rgba(0, 0, 0, 0.301);
+}
+
+.post {
+  position: relative;
+  max-width: 300px;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  padding: 10px 15px;
+  background-color: var(--l-yellow);
+  border: solid 10px var(--l-blue);
+  border-image: linear-gradient(to bottom, var(--l-blue), var(--d-blue));
+  border-image-slice: 1;
+  box-shadow: inset 0px 2px 3px 3px rgb(0, 0, 0, 0.2);
+}
+
+.post::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  background: linear-gradient(315deg , var(--l-blue), var(--d-blue));
+  /* box-shadow: -2px -3px 4px 1px rgb(0, 0, 0, 0.2); */
+}
+
+.post::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  background: linear-gradient(315deg , var(--l-blue), var(--d-blue));
+}
+
+.post__header {
+  font-size: 1.4rem;
+}
+
+.post__paragraph {
+  margin-bottom: 7px;
+}
+
+.post__paragraph-time {
+  color: rgb(95, 95, 95);
+}
+
+.button-wrapper {
+  margin-bottom: 20px;
+}
+
+.button-wrapper__member-anchor {
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 1rem;
+  background-color: var(--d-mint);
+  box-shadow: inset 0px 0px 3px 2px rgb(0, 0, 0, 0.2);
+
+  padding: 5px 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.button-wrapper__post-button {
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 1rem;
+  background-color: var(--d-mint);
+
+  padding: 5px 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  display: none;
+}
+
+@media screen and (width > 340px) { 
+  .button-wrapper__member-anchor {
+    font-size: 1.1rem;
+  }
 }
