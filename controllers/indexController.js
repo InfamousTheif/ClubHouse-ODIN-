@@ -4,11 +4,23 @@ function renderIndexPage(req, res) {
   res.render('index', { title });
 };
 
-function renderSignIn(req, res) {
-  const title = "Sign In";
+function renderSignUp(req, res) {
+  const title = "Sign up";
 
-  res.render('sign-in', { title });
+  res.render('sign-up', { title });
 };
 
-export { renderIndexPage, renderSignIn };
+function renderLogIn(req, res) {
+  const title = "Log In";
+
+  res.render('log-in', { title });
+};
+
+function renderMemberInitiation(req, res) {
+  const title = "Member Initiation";
+
+  res.render('member-initiation', { title });
+};
+
+export { renderIndexPage, renderSignUp, renderLogIn, renderMemberInitiation };
 
