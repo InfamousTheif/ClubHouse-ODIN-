@@ -14,8 +14,8 @@
       </div>
 
       <nav class="navbar">
-        <a href="/Sign-in" class="navbar__anchor navbar__left-ear">Sign Up</a>
-        <a class="navbar__anchor navbar__right-ear">Log in</a>
+        <a href="/Sign-up" class="navbar__anchor navbar__left-ear">Sign Up</a>
+        <a href="/Log-in" class="navbar__anchor navbar__right-ear">Log in</a>
       </nav>
     </header>
 
@@ -23,7 +23,7 @@
     <main>
 
       <div class="button-wrapper">
-        <a class="button-wrapper__member-anchor">Become a member to create posts</a>
+        <a href="/member-initiation" class="button-wrapper__member-anchor">Become a member to create posts</a>
         <button class="button-wrapper__post-button">Create Post</button>
       </div>
 
@@ -73,6 +73,8 @@
        
       </div>
     </main>
+
+     <%- include('post-form.ejs') %> 
 
     <!-- Page Footer -->
      <footer>

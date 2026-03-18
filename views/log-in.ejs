@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/form.css">
+  </head>
+  <body>
+    <!-- Page header -->
+    <header>
+      <div class="logo-wrapper">
+        <img class="logo-wrapper__img" alt="Mickey Mouse Clubhouse logo" src="/images/toppng.com-mickey-mouse-clubhouse-logo-png-1280x563.webp">
+      </div>
+    </header>
+
+    <!-- Page main content -->
+    <main>
+      <div class="main-content">
+
+        <div class="main-content__img-wrapper Goofy-hat-wrapper">
+          <img src="/images/Goofy's hat.webp">
+        </div>
+      
+        <div class="form-wrapper">
+          <h2 class="form-wrapper__header">Log In</h2>
+
+          <form class="form-wrapper__form">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" placeholder="Johnathan123" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Johnathan123@gmail.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="pass1">Password</label>
+                <input id="pass1" name="pass1" type="password" placeholder="make it hard to guess" required>
+              </div>
+
+              <button type="submit">Log In</button>
+          </form>
+
+        </div>
+       
+      </div>
+
+      <a href="/" class="go-back-button">Go back<a>
+    </main>
+
+    <!-- Page Footer -->
+     <footer>
+
+     </footer>
+  </body>
+</html>
