@@ -1,0 +1,122 @@
+@import "index.css";
+
+.main-content {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.main-content__img-wrapper {
+  width: 100px;
+  
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  right: 50%;
+}
+
+.Goofy-hat-wrapper { 
+  width: 200px;
+
+  top: -70px;
+  left: 42%;
+  right: 58%;
+
+  /*Specific to log-in page*/
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  width: 30rem;
+  font-family: sans-serif;
+}
+
+.form-wrapper__header {
+  font-size: 2rem;
+}
+
+.form-wrapper__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+
+  width: 100%;
+}
+
+.form-group > label {
+  font-size: 1.2rem;
+}
+
+input, textarea {
+  border: solid 2px black;
+  border-radius: 20px;
+  padding: 10px 15px;
+
+  background-color: var(--l-blue);
+  box-shadow: inset 0px 0px 3px 2px rgb(0, 0, 0, 0.2);
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgb(70, 70, 70);
+}
+
+textarea {
+  height: 200px;
+}
+
+.form-wrapper__form > button, .go-back-button {
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 1.4rem;
+  background-color: var(--d-mint);
+  box-shadow: 0px 0px 3px 4px rgb(0, 0, 0, 0.2);
+
+  padding: 12px 10px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 20px;
+  margin-top: 20px;
+
+  transition: background-color 0.1s;
+}
+
+.go-back-button {
+  box-shadow: inset 0px 0px 3px 4px rgb(0, 0, 0, 0.2);
+}
+
+.form-wrapper__form > button:hover {
+  background-color: var(--l-mint);
+}
+
+/* Post form stuff */
+
+.post-form-popup {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+
+  width: 80%;
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4.55rem;
+
+  margin: 0 auto;
+  padding: 50px 10px;
+  background: linear-gradient(var(--l-whiteboard), var(--d-whiteboard));
+  /* border: solid 10px var(--l-blue);
+  border-image: linear-gradient(to bottom, var(--l-blue), var(--d-blue));
+  border-image-slice: 1; */
+  box-shadow: inset 0px 0px 8px 6px rgba(0, 0, 0, 0.301);
+}
