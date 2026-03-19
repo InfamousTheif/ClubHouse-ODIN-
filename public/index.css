@@ -189,7 +189,7 @@ main {
   margin-bottom: 20px;
 }
 
-.button-wrapper__member-anchor {
+.button-wrapper__member-anchor, .button-wrapper__post-button {
   cursor: pointer;
   font-family: sans-serif;
   font-size: 1rem;
@@ -201,20 +201,12 @@ main {
   border-radius: 5px;
 }
 
-.button-wrapper__post-button {
-  cursor: pointer;
-  font-family: sans-serif;
-  font-size: 1rem;
-  background-color: var(--d-mint);
-
-  padding: 5px 10px;
-  border: 2px solid white;
-  border-radius: 5px;
-  display: none;
+.page-blur {
+  filter: blur(20px);
 }
 
 @media screen and (width > 340px) { 
-  .button-wrapper__member-anchor {
+  .button-wrapper__member-anchor, .button-wrapper__post-button {
     font-size: 1.1rem;
   }
 }
