@@ -10,18 +10,19 @@ const SQL = `
     memberStatus BOOLEAN NOT NULL DEFAULT FALSE
   );
     
-  INSERT INTO UserInfo (username, password, email)
+  INSERT INTO userInfo (username, password, email)
    VALUES ('gamer123', 'hello123', 'gamer123@gmail.com');
 
   CREATE TABLE IF NOT EXISTS userPost (
     userId INTEGER PRIMARY KEY,
     username VARCHAR(10) NOT NULL CHECK(LENGTH(TRIM(username)) > 0),
+    title VARCHAR(50) NOT NULL CHECK(LENGTH(TRIM(username)) > 0),
     post VARCHAR(255) NOT NULL CHECK(LENGTH(TRIM(post)) > 0),
     sendDate TIMESTAMPTZ DEFAULT now()
   );
     
-  INSERT INTO userPost (userId, username, post)
-   VALUES (1, 'gamer123', 'I love playing games. The one I play the most currently is 2XKO; go check it out.');   
+  INSERT INTO userPost (userId, username, title, post)
+   VALUES (1, 'gamer123', 'Most played game recently','I love playing games. The one I play the most currently is 2XKO; go check it out.');   
 `;
 
 async function populateDB() {
