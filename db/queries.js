@@ -30,3 +30,5 @@ async function storePost(userPost, userInfo) {
     console.error(err);
   };
 };
+
+export { getUsers, getPosts, storeUser, storePost }
