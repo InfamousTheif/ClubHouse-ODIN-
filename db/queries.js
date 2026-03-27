@@ -1,14 +1,24 @@
 import { pool } from "./pool.js";
 import bcrypt from "bcryptjs";
 
-async function getUsers(params) {
+async function getUsers() {
   const { rows } = await pool.query('SELECT * FROM userInfo');
   return rows;
 };
 
-async function getPosts(params) {
+async function getPosts() {
   const { rows } = await pool.query('SELECT * FROM userPost');
   return rows;
+};
+
+async function getUser(username) {
+  const { rows } = await pool.query('SELECT * FROM userInfo WHERE username=$1', [username]);
+  return rows[0];
+};
+
+async function getUserByID(userId) {
+  const { rows } = await pool.query('SELECT * FROM userInfo WHERE userId=$1', [userId]);
+  return rows[0];
 };
 
 async function storeUser(userInfo) {
@@ -31,4 +41,4 @@ async function storePost(userPost, userInfo) {
   };
 };
 
-export { getUsers, getPosts, storeUser, storePost }
+export { getUsers, getPosts, storeUser, storePost, getUser, getUserByID }
