@@ -41,4 +41,12 @@ async function storePost(userPost, userInfo) {
   };
 };
 
-export { getUsers, getPosts, storeUser, storePost, getUser, getUserByID }
+async function changeMemberStatus(userId) {
+  try {
+    await pool.query('UPDATE userInfo SET memberStatus=TRUE WHERE userId=$1 ', [userId]);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export { getUsers, getPosts, storeUser, storePost, getUser, getUserByID, changeMemberStatus }

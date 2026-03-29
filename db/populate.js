@@ -5,13 +5,11 @@ const SQL = `
   CREATE TABLE IF NOT EXISTS userInfo (
     userId INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     username VARCHAR(10) NOT NULL CHECK(LENGTH(TRIM(username)) > 0),
-    password VARCHAR(15) NOT NULL CHECK(LENGTH(TRIM(password)) > 0),
+    password VARCHAR(255) NOT NULL CHECK(LENGTH(TRIM(password)) > 0),
     email VARCHAR(255) NOT NULL CHECK(LENGTH(TRIM(password)) > 0),
     memberStatus BOOLEAN NOT NULL DEFAULT FALSE
   );
     
-  INSERT INTO userInfo (username, password, email)
-   VALUES ('gamer123', 'hello123', 'gamer123@gmail.com');
 
   CREATE TABLE IF NOT EXISTS userPost (
     userId INTEGER PRIMARY KEY,
@@ -20,9 +18,7 @@ const SQL = `
     post VARCHAR(255) NOT NULL CHECK(LENGTH(TRIM(post)) > 0),
     sendDate TIMESTAMPTZ DEFAULT now()
   );
-    
-  INSERT INTO userPost (userId, username, title, post)
-   VALUES (1, 'gamer123', 'Most played game recently','I love playing games. The one I play the most currently is 2XKO; go check it out.');   
+     
 `;
 
 async function populateDB() {
