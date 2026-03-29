@@ -6,6 +6,7 @@ import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
 const pgSession = connectPgSimple(session);
 import { pool } from "./db/pool.js";
+import passport from "passport";
 
 app.set('views', './views');
 app.set('view engine', 'ejs');
@@ -19,12 +20,18 @@ app.use(session({
   saveUninitialized: false,
   store: new pgSession({
     pool: pool,
-    tableName: 'userInfo'
+    tableName: 'session',
+    createTableIfMissing: true
   }),
   cookie: {
     maxAge: 1000 * 60 * 60 * 24
   }
 }))
+
+// Passport js 
+import './middleware/passport.js'
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(indexRouter);
 
