@@ -1,7 +1,7 @@
 function renderIndexPage(req, res) {
   const title = 'Mickey\'s Clubhouse';
-
-  res.render('index', { title });
+  console.log(req.user)
+  res.render('index', { title, user:req.user });
 };
 
 function renderSignUp(req, res) {
@@ -22,5 +22,14 @@ function renderMemberInitiation(req, res) {
   res.render('member-initiation', { title });
 };
 
-export { renderIndexPage, renderSignUp, renderLogIn, renderMemberInitiation };
+function handleLogOut(req, res) {
+  req.logout((err) => {
+    if(err) {
+      return next(err);
+    };
+  });
+  res.redirect("/")
+}
+
+export { renderIndexPage, renderSignUp, renderLogIn, renderMemberInitiation, handleLogOut };
 
