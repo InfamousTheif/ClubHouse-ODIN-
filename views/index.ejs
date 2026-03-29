@@ -15,17 +15,31 @@
       </div>
 
       <nav class="navbar">
-        <a href="/Sign-up" class="navbar__anchor navbar__left-ear">Sign Up</a>
-        <a href="/Log-in" class="navbar__anchor navbar__right-ear">Log in</a>
-      </nav>
+        <% if(locals.user)  {%>
+          <p><%= user.username %></p>
+          <a href="/Log-out" class="navbar__anchor navbar__right-ear">Log Out</a>
+        <%} else {%>
+          <a href="/Sign-up" class="navbar__anchor navbar__left-ear">Sign Up</a>
+          <a href="/Log-in" class="navbar__anchor navbar__right-ear">Log in</a>
+        <%}%> 
+      </nav>     
     </header>
 
     <!-- Page main content -->
     <main>
 
       <div class="button-wrapper">
-        <a href="/member-initiation" class="button-wrapper__member-anchor">Become a member to create posts</a>
-        <button class="button-wrapper__post-button">Create Post</button>
+        <% if(locals.user) {%>
+          
+          <% if(locals.user.memberstatus) {%>
+          <button class="button-wrapper__post-button">Create Post</button>
+          <%} else {%>
+            <a href="/member-initiation" class="button-wrapper__member-anchor">Become a member to create posts</a>
+          <%}%>  
+
+        <%} else {%>
+          <h2 class="button-wrapper__header">Sign up and Log-in to get a chance at becoming a member</h2>
+        <%}%>    
       </div>
 
       <div class="main-content">
