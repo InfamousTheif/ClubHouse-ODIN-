@@ -1,13 +1,26 @@
 import { Router } from "express";
 const indexRouter = Router();
-import * as indexController from '../controllers/indexController.js'
+import * as indexController from "../controllers/indexController.js"
+import passport from "passport";
+import * as postControllers from "../controllers/postControllers.js"
 
+// Get requests
 indexRouter.get("/", indexController.renderIndexPage);
 
 indexRouter.get("/Sign-up", indexController.renderSignUp);
 
-indexRouter.get("/Log-in", indexController.renderLogIn)
+indexRouter.get("/Log-in", indexController.renderLogIn);
 
-indexRouter.get("/member-initiation", indexController.renderMemberInitiation)
+indexRouter.get("/member-initiation", indexController.renderMemberInitiation);
+
+indexRouter.get("/Log-out", indexController.handleLogOut);
+
+// Post requests
+
+indexRouter.post("/Sign-up", postControllers.handleSignIn);
+
+indexRouter.post("/Log-in", passport.authenticate('local', {failureRedirect:"/Sign-up", successRedirect:"/" }), postControllers.handleLogIn);
+
+indexRouter.post("/member-initiation", postControllers.handleMemberInitiation);
 
 export { indexRouter }
