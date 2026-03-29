@@ -1,7 +1,12 @@
-function renderIndexPage(req, res) {
+import * as db from "../db/queries.js";
+import * as dateHandler from "../utils/dateFormatter.js";
+
+async function renderIndexPage(req, res) {
   const title = 'Mickey\'s Clubhouse';
+  const posts = await db.getPosts();
+  console.log(posts)
   console.log(req.user)
-  res.render('index', { title, user:req.user });
+  res.render('index', { title, user:req.user, posts, dateHandler });
 };
 
 function renderSignUp(req, res) {
