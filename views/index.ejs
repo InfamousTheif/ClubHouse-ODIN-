@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/webp" href="images/clubhouse-icon.webp">
     <title><%= title %></title>
     <link rel="stylesheet" href="/index.css">
     <script src="/post-form.js" defer></script>
@@ -38,53 +39,31 @@
           <%}%>  
 
         <%} else {%>
-          <h2 class="button-wrapper__header">Sign up and Log-in to get a chance at becoming a member</h2>
+          <h2 class="button-wrapper__header">Create an account and become a member to start posting</h2>
         <%}%>    
       </div>
 
       <div class="main-content">
       
-        <div class="post">
-          <h3 class="post__header">Welcome to the ClubHouse</h3>
-          <p class="post__paragraph">Stick around and check out everyone's posts or create your own by logging in and becoming a member</p>
-          <p class="post__paragraph-time"> sent at 5:54pm </p>
-        </div>
+        <% for(let i=0; i < posts.length; i++) {%>
+          <div class="post">
+            <h3 class="post__header"><%= posts[i].title %></h3>
+            <p class="post__paragraph"><%= posts[i].post %></p>
 
-        <div class="post">
-          <h3 class="post__header">Welcome to the ClubHouse</h3>
-          <p class="post__paragraph">Stick around and check out everyone's posts or create your own by logging in and becoming a member</p>
-          <p class="post__paragraph-time"> sent at 5:54pm </p>
-        </div>
+            <% if(locals.user) {%>
 
-        <div class="post">
-          <h3 class="post__header">Welcome to the ClubHouse</h3>
-          <p class="post__paragraph">Stick around and check out everyone's posts or create your own by logging in and becoming a member</p>
-          <p class="post__paragraph-time"> sent at 5:54pm </p>
-        </div>
+              <% if(locals.user.memberstatus) {%>
+                <p class="post__paragraph-time" style="margin-bottom: 4px;"> <%= posts[i].username %> </p>
+                <p class="post__paragraph-time"> <%= dateHandler.formatDate(posts[i].senddate) %> </p>
+              <%}else {%>
+                <p class="post__paragraph-time">Log-in and become a member to see more</p>
+              <%}%>  
 
-        <div class="post">
-          <h3 class="post__header">Welcome to the ClubHouse</h3>
-          <p class="post__paragraph">Stick around and check out everyone's posts or create your own by logging in and becoming a member</p>
-          <p class="post__paragraph-time"> sent at 5:54pm </p>
-        </div>
-
-        <div class="post">
-          <h3 class="post__header">Welcome to the ClubHouse</h3>
-          <p class="post__paragraph">Stick around and check out everyone's posts or create your own by logging in and becoming a member</p>
-          <p class="post__paragraph-time"> sent at 5:54pm </p>
-        </div>
-
-        <div class="post">
-          <h3 class="post__header">Welcome to the ClubHouse</h3>
-          <p class="post__paragraph">Stick around and check out everyone's posts or create your own by logging in and becoming a member</p>
-          <p class="post__paragraph-time"> sent at 5:54pm </p>
-        </div>
-
-        <div class="post">
-          <h3 class="post__header">Welcome to the ClubHouse</h3>
-          <p class="post__paragraph">Stick around and check out everyone's posts or create your own by logging in and becoming a member</p>
-          <p class="post__paragraph-time"> sent at 5:54pm </p>
-        </div>
+            <%}else {%>
+              <p class="post__paragraph-time">Log-in and become a member to see more</p>
+            <%}%>      
+          </div>
+        <%}%>
        
       </div>
     </main>
