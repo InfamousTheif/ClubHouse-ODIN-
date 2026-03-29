@@ -33,9 +33,9 @@ async function storeUser(userInfo) {
 
 async function storePost(userPost, userInfo) {
   try {
-    const {userId, username } = userInfo;
+    const {userid, username } = userInfo;
     const { title, text } = userPost;
-    await pool.query('INSERT INTO userPost (userId, username, title, post) VALUES ($1, $2, $3, $4)', [userId, username, title, text ]);
+    await pool.query('INSERT INTO userPost (userId, username, title, post) VALUES ($1, $2, $3, $4)', [userid, username, title, text ]);
   } catch (err) {
     console.error(err);
   };
