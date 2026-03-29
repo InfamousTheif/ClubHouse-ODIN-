@@ -23,4 +23,6 @@ indexRouter.post("/Log-in", passport.authenticate('local', {failureRedirect:"/Si
 
 indexRouter.post("/member-initiation", postControllers.handleMemberInitiation);
 
+indexRouter.post("/", postControllers.handleuserPosts);
+
 export { indexRouter }
