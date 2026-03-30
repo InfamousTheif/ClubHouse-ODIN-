@@ -22,12 +22,16 @@
         <div class="form-wrapper">
           <h2 class="form-wrapper__header">Member Initiation</h2>
 
+          <% if(locals.status) {%>
+            <p class="failed-message">Incorrect answer. Try again</p>
+          <%}%>
+
           <form method="POST" action="/member-initiation" class="form-wrapper__form">
               <div class="form-group">
                 <label for="answer">Mickey was almost named...</label>
                 <input id="answer" name="answer" type="text" placeholder="Answer123" required>
               </div>
-              <button type="submit">Submit</button>
+              <button style="margin-top: 5px;" type="submit">Submit</button>
           </form>
 
         </div>

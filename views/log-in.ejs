@@ -27,6 +27,10 @@
 
           <h2 class="form-wrapper__header">Log In</h2>
 
+          <% if(locals.status) {%>
+            <p class="failed-message">Incorrect username or password. Try again</p>
+          <%}%>
+
           <form method="POST" action="/Log-in" class="form-wrapper__form">
               <div class="form-group">
                 <label for="username">Username</label>
