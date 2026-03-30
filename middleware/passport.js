@@ -4,7 +4,7 @@ import * as db from "../db/queries.js";
 import { validPassword } from "../utils/passValidator.js";
 
 const customFields = {
-  passwordField: 'pass1'
+  passwordField: "pass1"
 };
 
 const verifyCallback = async (username, password, done) => {

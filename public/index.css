@@ -212,6 +212,12 @@ main {
   font-family: sans-serif;
 }
 
+.failed-message {
+  color: red;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
 .page-blur {
   filter: blur(20px);
 }
