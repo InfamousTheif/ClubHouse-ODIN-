@@ -19,7 +19,7 @@ indexRouter.get("/Log-out", indexController.handleLogOut);
 
 indexRouter.post("/Sign-up", postControllers.handleSignIn);
 
-indexRouter.post("/Log-in", passport.authenticate('local', {failureRedirect:"/Sign-up", successRedirect:"/" }), postControllers.handleLogIn);
+indexRouter.post("/Log-in", passport.authenticate('local', {failureRedirect:"/Log-in?status=failed", successRedirect:"/" }), postControllers.handleLogIn);
 
 indexRouter.post("/member-initiation", postControllers.handleMemberInitiation);
 

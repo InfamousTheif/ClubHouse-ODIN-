@@ -15,7 +15,7 @@ async function handleMemberInitiation(req, res) {
     req.user.memberstatus = true;
     res.redirect("/");
   } else {
-    res.send("Wrong answer");
+    res.redirect("/member-initiation?status=failed")
   };
 };
 

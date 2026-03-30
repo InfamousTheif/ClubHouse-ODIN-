@@ -17,14 +17,16 @@ function renderSignUp(req, res) {
 
 function renderLogIn(req, res) {
   const title = "Log In";
+  const { status } = req.query;
 
-  res.render('log-in', { title });
+  res.render('log-in', { title, status });
 };
 
 function renderMemberInitiation(req, res) {
   const title = "Member Initiation";
+  const { status } = req.query
 
-  res.render('member-initiation', { title });
+  res.render('member-initiation', { title, status });
 };
 
 function handleLogOut(req, res) {
