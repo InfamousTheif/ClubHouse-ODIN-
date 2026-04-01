@@ -52,11 +52,20 @@
 
             <% if(locals.user) {%>
 
+              </a> 
+
               <% if(locals.user.memberstatus) {%>
                 <p class="post__paragraph-time" style="margin-bottom: 4px;"> <%= posts[i].username %> </p>
                 <p class="post__paragraph-time"> <%= dateHandler.formatDate(posts[i].senddate) %> </p>
               <%}else {%>
                 <p class="post__paragraph-time">Log-in and become a member to see more</p>
+              <%}%>
+              
+              <%if(locals.user.adminstatus){%>
+                <form class="delete-form" method="POST" action="/delete-post">
+                  <input type="hidden" name="postid" value="<%= posts[i].postid %>">
+                  <button class="delete-form__button" type="submit"><img src="/images/delete.webp"></button>
+                </form>
               <%}%>  
 
             <%}else {%>

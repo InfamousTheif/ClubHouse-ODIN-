@@ -218,6 +218,14 @@ main {
   font-weight: bold;
 }
 
+.delete-form__button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 40px;
+  margin-top: 4px;
+}
+
 .page-blur {
   filter: blur(20px);
 }
