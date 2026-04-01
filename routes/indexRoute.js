@@ -25,4 +25,6 @@ indexRouter.post("/member-initiation", postControllers.handleMemberInitiation);
 
 indexRouter.post("/", postControllers.handleuserPosts);
 
+indexRouter.post("/delete-post", postControllers.handleDeletePost);
+
 export { indexRouter }
