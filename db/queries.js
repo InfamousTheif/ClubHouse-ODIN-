@@ -46,7 +46,23 @@ async function changeMemberStatus(userId) {
     await pool.query('UPDATE userInfo SET memberStatus=TRUE WHERE userId=$1 ', [userId]);
   } catch (err) {
     console.error(err);
-  }
-}
+  };
+};
 
-export { getUsers, getPosts, storeUser, storePost, getUser, getUserByID, changeMemberStatus }
+async function changeAdminStatus(userId) {
+  try {
+    await pool.query('UPDATE userInfo SET adminStatus=TRUE WHERE userId=$1 ', [userId]);
+  } catch (err) {
+    console.error(err);
+  };
+};
+
+async function deletePost(postId) {
+  try {
+    await pool.query('DELETE FROM userPost WHERE postId=$1', [postId]); 
+  } catch (err) {
+    console.error(err);
+  };
+};
+
+export { getUsers, getPosts, storeUser, storePost, getUser, getUserByID, changeMemberStatus, changeAdminStatus, deletePost }
