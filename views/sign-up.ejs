@@ -26,6 +26,10 @@
         <div class="form-wrapper">
           <h2 class="form-wrapper__header">Sign Up</h2>
 
+          <% if(locals.status) {%>
+            <p class="failed-message">Passwords do not match. Try again</p>
+          <%}%>
+
           <form method="POST" action="/Sign-up" class="form-wrapper__form">
               <div class="form-group">
                 <label for="username">Username</label>
