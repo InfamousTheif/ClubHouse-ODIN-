@@ -7,12 +7,14 @@ const SQL = `
     username VARCHAR(10) NOT NULL CHECK(LENGTH(TRIM(username)) > 0),
     password VARCHAR(255) NOT NULL CHECK(LENGTH(TRIM(password)) > 0),
     email VARCHAR(255) NOT NULL CHECK(LENGTH(TRIM(password)) > 0),
-    memberStatus BOOLEAN NOT NULL DEFAULT FALSE
+    memberStatus BOOLEAN NOT NULL DEFAULT FALSE,
+    adminStatus BOOLEAN NOT NULL DEFAULT FALSE
   );
     
 
   CREATE TABLE IF NOT EXISTS userPost (
-    userId INTEGER PRIMARY KEY,
+    postId INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    userId INTEGER,
     username VARCHAR(10) NOT NULL CHECK(LENGTH(TRIM(username)) > 0),
     title VARCHAR(50) NOT NULL CHECK(LENGTH(TRIM(username)) > 0),
     post VARCHAR(255) NOT NULL CHECK(LENGTH(TRIM(post)) > 0),
