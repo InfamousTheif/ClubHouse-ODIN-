@@ -2,7 +2,7 @@ import * as db from '../db/queries.js';
 
 async function handleSignIn(req, res) {
   if(req.body.pass1 !== req.body.pass2) {
-    return res.redirect("/Sign-up?status=failed")
+    return res.redirect("/Sign-up?status=failedpassword")
   };
 
   await db.storeUser(req.body);
