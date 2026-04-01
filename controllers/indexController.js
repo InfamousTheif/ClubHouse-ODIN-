@@ -11,8 +11,8 @@ async function renderIndexPage(req, res) {
 
 function renderSignUp(req, res) {
   const title = "Sign up";
-
-  res.render('sign-up', { title });
+  const { status } = req.query;
+  res.render('sign-up', { title, status });
 };
 
 function renderLogIn(req, res) {
