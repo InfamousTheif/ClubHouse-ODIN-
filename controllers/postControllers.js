@@ -1,11 +1,47 @@
 import * as db from '../db/queries.js';
+import { query, body, validationResult, matchedData } from 'express-validator';
+
+// Validations
+const signUpValidator = [
+  body("username").trim().notEmpty().isLength({min:1, max:20}).withMessage("Username must be between 1 to 20 characters long"),
+
+  body("email").trim().notEmpty().isEmail().withMessage("Invalid email"),
+
+  body("pass1").trim().notEmpty().isLength({min:1, max:20}).withMessage("Password must be between 1 to 20 characters long"),
+
+  body("pass2").custom((value, { req }) => value === req.body.pass1)
+  .withMessage("Passwords do not match")
+];
+
+const logInValidator = [
+  body("username").trim().notEmpty().isLength({min:1, max:20}).withMessage("Username must be between 1 to 20 characters long"),
+
+  body("pass1").trim().notEmpty().isLength({min:1, max:20}).withMessage("Password must be between 1 to 20 characters long"),
+];
+
+const queryValidator = [
+  query("status").trim().notEmpty().escape().withMessage("Invalid query: status")
+];
 
 async function handleSignIn(req, res) {
-  if(req.body.pass1 !== req.body.pass2) {
-    return res.redirect("/Sign-up?status=failedpassword")
-  };
+  const errors = validationResult(req);
 
-  await db.storeUser(req.body);
+  if(!errors.isEmpty()) {
+    const errMsg = errors.array()[0].msg;
+    const title = "Sign up"
+    return res.render("sign-up", { title, errMsg });
+  }
+
+  const data = matchedData(req)
+
+  // The validation above takes care of the code below in a more proper manner
+  // if(data.pass1 !== data.pass2) {
+  //   return res.redirect("/Sign-up?status=failedpassword")
+  // };
+
+  console.log(data)
+
+  await db.storeUser(data);
   res.redirect("/Log-in");
 };
 
@@ -38,4 +74,4 @@ async function handleDeletePost(req, res) {
   res.redirect("/")
 }
 
-export { handleSignIn, handleLogIn, handleMemberInitiation, handleuserPosts, handleDeletePost }
+export { handleSignIn, handleLogIn, handleMemberInitiation, handleuserPosts, handleDeletePost, signUpValidator }
