@@ -17,7 +17,7 @@ indexRouter.get("/Log-out", indexController.handleLogOut);
 
 // Post requests
 
-indexRouter.post("/Sign-up", postControllers.handleSignIn);
+indexRouter.post("/Sign-up", postControllers.signUpValidator, postControllers.handleSignIn);
 
 indexRouter.post("/Log-in", passport.authenticate('local', {failureRedirect:"/Log-in?status=failed", successRedirect:"/" }), postControllers.handleLogIn);
 
