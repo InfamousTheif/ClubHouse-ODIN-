@@ -26,8 +26,8 @@
         <div class="form-wrapper">
           <h2 class="form-wrapper__header">Sign Up</h2>
 
-          <% if(locals.status) {%>
-            <p class="failed-message">Passwords do not match. Try again</p>
+          <% if(locals.errMsg) {%>
+            <p class="failed-message"><%= errMsg %></p>
           <%}%>
 
           <form method="POST" action="/Sign-up" class="form-wrapper__form">
