@@ -9,7 +9,7 @@ indexRouter.get("/", indexController.renderIndexPage);
 
 indexRouter.get("/Sign-up", indexController.renderSignUp);
 
-indexRouter.get("/Log-in", indexController.renderLogIn);
+indexRouter.get("/Log-in", postControllers.queryValidator, indexController.renderLogIn);
 
 indexRouter.get("/member-initiation", indexController.renderMemberInitiation);
 
