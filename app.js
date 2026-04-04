@@ -37,7 +37,10 @@ app.use(indexRouter);
 
 app.use((err, req, res, next) => {
   console.log(err);
-  res.status(err.status || 500 ).send(err.message || "Internal Server Error");
+  const errCode = err.status || 500;
+  const errMsg = err.message || "Internal Server Error";
+  const title = "Error page"
+  res.status(errCode).render("displayErr", { title, errCode, errMsg });
 });
 
 const PORT = process.env.PORT || 3000 ;
