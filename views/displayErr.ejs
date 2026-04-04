@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/webp" href="images/clubhouse-icon.webp">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/form.css">
+  </head>
+  <body>
+    <!-- Page header -->
+    <header>
+      <div class="logo-wrapper">
+        <img class="logo-wrapper__img" alt="Mickey Mouse Clubhouse logo" src="/images/toppng.com-mickey-mouse-clubhouse-logo-png-1280x563.webp">
+      </div>
+    </header>
+
+    <!-- Page main content -->
+    <main>
+
+      <div style="width: 100%; font-family: sans-serif; text-align: center;">
+        <h1 style="margin-bottom: 20px;">Error occured <br> Error code: <%= errCode %></h1>
+        
+        <p style="font-size: 1.4rem; margin-bottom: 30px;"><%= errMsg %></p>
+
+        <a href="/" class="go-back-button">Go back</a>
+      </div>
+     
+    </main>
+
+    <!-- Page Footer -->
+     <footer>
+
+     </footer>
+  </body>
+</html>
