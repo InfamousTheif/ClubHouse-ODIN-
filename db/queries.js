@@ -21,6 +21,12 @@ async function getUserByID(userId) {
   return rows[0];
 };
 
+async function getUserByEmail(email) {
+  const { rows } = await pool.query('SELECT * FROM userInfo WHERE email=$1', [email]);
+  return rows[0];
+};
+
+
 async function storeUser(userInfo) {
   try {
     const { username, email, pass1 } = userInfo;
@@ -65,4 +71,4 @@ async function deletePost(postId) {
   };
 };
 
-export { getUsers, getPosts, storeUser, storePost, getUser, getUserByID, changeMemberStatus, changeAdminStatus, deletePost }
+export { getUsers, getPosts, storeUser, storePost, getUser, getUserByID, getUserByEmail, changeMemberStatus, changeAdminStatus, deletePost }
