@@ -9,7 +9,7 @@
 
     <!-- Page main content -->
 
-      <div class="post-form-popup">
+      <div class="post-form-popup <%= elementClass %>">
         <button class="close-form-button">X</button>
 
         <!-- <div class="main-content__img-wrapper Goofy-hat-wrapper">
@@ -18,6 +18,10 @@
       
         <div class="form-wrapper" id="post-form">
           <h2 class="form-wrapper__header">Create a post</h2>
+          
+          <% if(locals.errMsg) {%>
+            <p class="failed-message"><%= errMsg %></p>
+          <%}%>
 
           <form method="POST" action="/" class="form-wrapper__form">
               <div class="form-group">
