@@ -23,14 +23,8 @@ const signUpValidator = [
   .withMessage("Passwords do not match")
 ];
 
-const logInValidator = [
-  body("username").trim().notEmpty().isLength({min:1, max:20}).withMessage("Username must be between 1 to 20 characters long"),
-
-  body("pass1").trim().notEmpty().isLength({min:1, max:20}).withMessage("Password must be between 1 to 20 characters long"),
-];
-
 const queryValidator = [
-  query("status").trim().notEmpty().escape().withMessage("Invalid query: status")
+  query("status").optional().trim().notEmpty().escape().withMessage("Escape attempt failed.")
 ];
 
 async function handleSignIn(req, res) {
@@ -84,4 +78,4 @@ async function handleDeletePost(req, res) {
   res.redirect("/")
 }
 
-export { handleSignIn, handleLogIn, handleMemberInitiation, handleuserPosts, handleDeletePost, signUpValidator }
+export { handleSignIn, handleLogIn, handleMemberInitiation, handleuserPosts, handleDeletePost, signUpValidator, queryValidator }
