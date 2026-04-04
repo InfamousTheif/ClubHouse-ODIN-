@@ -7,7 +7,9 @@ async function renderIndexPage(req, res) {
   const posts = await db.getPosts();
   console.log(posts)
   console.log(req.user)
-  res.render('index', { title, user:req.user, posts, dateHandler });
+  const elementClass = "none"
+  const errMsg = null;
+  res.render('index', { title, user:req.user, posts, dateHandler, elementClass, errMsg });
 };
 
 function renderSignUp(req, res) {
