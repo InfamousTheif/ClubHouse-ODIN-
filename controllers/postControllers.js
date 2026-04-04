@@ -3,9 +3,19 @@ import { query, body, validationResult, matchedData } from 'express-validator';
 
 // Validations
 const signUpValidator = [
-  body("username").trim().notEmpty().isLength({min:1, max:20}).withMessage("Username must be between 1 to 20 characters long"),
+  body("username").trim().notEmpty().isLength({min:1, max:20}).withMessage("Username must be between 1 to 20 characters long").custom( async value => {
+    const user = await db.getUser(value);
+    if(user) {
+      throw new Error("This username is taken");
+    };
+  }),
 
-  body("email").trim().notEmpty().isEmail().withMessage("Invalid email"),
+  body("email").trim().notEmpty().isEmail().withMessage("Invalid email").custom( async (value) => {
+    const user = await db.getUserByEmail(value);
+    if(user) {
+      throw new Error("Email is already in use")
+    };
+  }),
 
   body("pass1").trim().notEmpty().isLength({min:1, max:20}).withMessage("Password must be between 1 to 20 characters long"),
 
