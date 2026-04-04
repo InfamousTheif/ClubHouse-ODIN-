@@ -134,3 +134,11 @@ textarea {
   border-radius: 50%;
   box-shadow: inset 0px 0px 3px 4px rgb(0, 0, 0, 0.2);
 }
+
+.none {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
