@@ -1,5 +1,5 @@
 import { Pool } from "pg";
-import '../utils/dotenv.js';
+import "../utils/dotenv.js";
 
 const pool = new Pool({
   host: process.env.DB_HOST,

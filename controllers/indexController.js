@@ -3,18 +3,18 @@ import * as dateHandler from "../utils/dateFormatter.js";
 import { validationResult, matchedData } from "express-validator";
 
 async function renderIndexPage(req, res) {
-  const title = 'Mickey\'s Clubhouse';
+  const title = "Mickey\'s Clubhouse";
   const posts = await db.getPosts();
   console.log(posts)
   console.log(req.user)
   const elementClass = "none"
   const errMsg = null;
-  res.render('index', { title, user:req.user, posts, dateHandler, elementClass, errMsg });
+  res.render("index", { title, user:req.user, posts, dateHandler, elementClass, errMsg });
 };
 
 function renderSignUp(req, res) {
   const title = "Sign up";
-  res.render('sign-up', { title});
+  res.render("sign-up", { title});
 };
 
 function renderLogIn(req, res) {
@@ -29,14 +29,14 @@ function renderLogIn(req, res) {
   const data = matchedData(req);
   const { status } = data
 
-  res.render('log-in', { title, status });
+  res.render("log-in", { title, status });
 };
 
 function renderMemberInitiation(req, res) {
   const title = "Member Initiation";
   const { status } = req.query
 
-  res.render('member-initiation', { title, status });
+  res.render("member-initiation", { title, status });
 };
 
 function handleLogOut(req, res) {

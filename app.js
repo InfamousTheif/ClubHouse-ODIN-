@@ -1,6 +1,6 @@
 import express from "express";
 const app = express();
-import './utils/dotenv.js';
+import "./utils/dotenv.js";
 import { indexRouter } from "./routes/indexRoute.js";
 import session from "express-session";
 import connectPgSimple from "connect-pg-simple";
@@ -8,8 +8,8 @@ const pgSession = connectPgSimple(session);
 import { pool } from "./db/pool.js";
 import passport from "passport";
 
-app.set('views', './views');
-app.set('view engine', 'ejs');
+app.set("views", "./views");
+app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,7 +20,7 @@ app.use(session({
   saveUninitialized: false,
   store: new pgSession({
     pool: pool,
-    tableName: 'session',
+    tableName: "session",
     createTableIfMissing: true
   }),
   cookie: {
@@ -29,7 +29,7 @@ app.use(session({
 }))
 
 // Passport js 
-import './middleware/passport.js'
+import "./middleware/passport.js"
 app.use(passport.initialize());
 app.use(passport.session());
 

@@ -1,5 +1,5 @@
-import * as db from '../db/queries.js';
-import { query, body, validationResult, matchedData } from 'express-validator';
+import * as db from "../db/queries.js";
+import { query, body, validationResult, matchedData } from "express-validator";
 import * as dateHandler from "../utils/dateFormatter.js";
 
 // Validations
@@ -57,7 +57,7 @@ async function handleSignIn(req, res) {
 };
 
 async function handleMemberInitiation(req, res) {
-  if(req.body.answer.toLowerCase() === 'mortimer mouse') {
+  if(req.body.answer.toLowerCase() === "mortimer mouse") {
     await db.changeMemberStatus(req.user.userid);
     req.user.memberstatus = true;
     if(req.user.username === "inquntum2") {

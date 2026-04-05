@@ -1,5 +1,5 @@
 import { Client } from "pg";
-import '../utils/dotenv.js';
+import "../utils/dotenv.js";
 
 const SQL = `
   CREATE TABLE IF NOT EXISTS userInfo (
@@ -24,7 +24,7 @@ const SQL = `
 `;
 
 async function populateDB() {
-  console.log('seeding...');
+  console.log("seeding...");
 
   const client = new Client({
   host: process.env.DB_HOST,
@@ -37,7 +37,7 @@ async function populateDB() {
   try {
     await client.connect();
     await client.query(SQL);
-    console.log('Done');
+    console.log("Done");
   } catch(err) {
     console.log(`Seeding error: ${err}`);
   } finally {
