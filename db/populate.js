@@ -26,12 +26,12 @@ const SQL = `
 async function populateDB() {
   console.log("seeding...");
 
+  if(!process.argv[2]) {
+    throw new Error("Missing database connection string");
+  };
+
   const client = new Client({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  database: process.env.DATABASE,
-  password: process.env.DB_PASS,
-  port: process.env.DB_PORT
+  connectionString: process.argv[2]
   });
 
   try {
