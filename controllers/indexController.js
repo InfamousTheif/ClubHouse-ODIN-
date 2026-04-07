@@ -5,8 +5,6 @@ import { validationResult, matchedData } from "express-validator";
 async function renderIndexPage(req, res) {
   const title = "Mickey\'s Clubhouse";
   const posts = await db.getPosts();
-  console.log(posts)
-  console.log(req.user)
   const elementClass = "none"
   const errMsg = null;
   res.render("index", { title, user:req.user, posts, dateHandler, elementClass, errMsg });

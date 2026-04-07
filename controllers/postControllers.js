@@ -50,8 +50,6 @@ async function handleSignIn(req, res) {
   //   return res.redirect("/Sign-up?status=failedpassword")
   // };
 
-  console.log(data);
-
   await db.storeUser(data);
   res.redirect("/Log-in");
 };
